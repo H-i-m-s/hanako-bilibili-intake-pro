@@ -1,0 +1,16 @@
+{
+  "name": "bilibili-intake-pro",
+  "version": "0.2.0",
+  "private": true,
+  "type": "module",
+  "description": "OpenHanako plugin for Bilibili video intake with 4-layer subtitle fallback (CC/AI/MiMo/Whisper)",
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "smoke": "node ./tests/smoke.mjs",
+    "package-release": "python3 ./scripts/package_release.py",
+    "package-release:smoke": "python3 ./scripts/package_release.py --smoke"
+  },
+  "dependencies": {}
+}

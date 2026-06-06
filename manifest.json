@@ -1,0 +1,97 @@
+{
+  "id": "bilibili-intake-pro",
+  "name": "Bilibili Intake Pro",
+  "version": "1.0.0",
+  "description": "输入 BV 号或 B站链接，采集视频元信息、字幕、音频；四层字幕降级策略（CC→AI→MiMo ASR→Whisper），智能模型选择。",
+  "contributes": {
+    "configuration": {
+      "properties": {
+        "runtimeMode": {
+          "type": "string",
+          "default": "auto",
+          "title": "Python 运行模式（auto/native/wsl；Windows 上 auto 优先 native，失败再回退 WSL）"
+        },
+        "pythonPath": {
+          "type": "string",
+          "default": "",
+          "title": "指定 Python 可执行文件路径（如 conda 环境的 python.exe），留空使用自动创建的 venv"
+        },
+        "nativePythonCommand": {
+          "type": "string",
+          "default": "python",
+          "title": "原生 Python 命令"
+        },
+        "wslPythonCommand": {
+          "type": "string",
+          "default": "python3",
+          "title": "WSL Python 命令"
+        },
+        "sttProvider": {
+          "type": "string",
+          "default": "mimo",
+          "title": "云端 STT provider 名称（第3层降级），对应 providers.json 中的 key"
+        },
+        "whisperModel": {
+          "type": "string",
+          "default": "auto",
+          "title": "Whisper 模型名（auto=智能选择，或指定 base/small/medium/large）"
+        },
+        "whisperDevice": {
+          "type": "string",
+          "default": "auto",
+          "title": "Whisper 设备（auto/cuda/cpu；auto 优先 GPU，不可用再回退 CPU）"
+        },
+        "whisperLanguage": {
+          "type": "string",
+          "default": "",
+          "title": "Whisper 语言（留空自动识别）"
+        },
+        "preferredSubtitleLanguages": {
+          "type": "string",
+          "default": "zh-Hans,zh-CN,zh,ai-zh,zh-TW,en,ja",
+          "title": "优先字幕语言顺序（逗号分隔）"
+        },
+        "audioFormat": {
+          "type": "string",
+          "default": "mp3",
+          "title": "音频导出格式"
+        },
+        "sessdata": {
+          "type": "string",
+          "default": "",
+          "title": "B站 SESSDATA（F12 → Application → Cookies → bilibili.com → SESSDATA → 复制 Value 粘贴到这里）"
+        },
+        "biliJct": {
+          "type": "string",
+          "default": "",
+          "title": "B站 bili_jct（同上，在 Cookies 列表里找到 bili_jct）"
+        },
+        "cookiesFile": {
+          "type": "string",
+          "default": "",
+          "title": "可选 cookies 文件路径（设置 SESSDATA/biliJct 后自动生成，一般不需要手动填）"
+        },
+        "cookieBrowser": {
+          "type": "string",
+          "default": "auto",
+          "title": "Cookie 检测浏览器（auto/edge/chrome/none；auto 优先 Edge 再 Chrome）"
+        },
+        "saveToWorkspace": {
+          "type": "boolean",
+          "default": false,
+          "title": "默认是否写入工作目录（Agent 传参覆盖）"
+        },
+        "workspacePath": {
+          "type": "string",
+          "default": "",
+          "title": "工作目录路径（例如 D:/Agent/B站视频总结），临时总结文件和最终 .md 文档均写入此目录"
+        },
+        "maxReturnedTranscriptChars": {
+          "type": "number",
+          "default": 12000,
+          "title": "回传给 Agent 的最大正文字符数"
+        }
+      }
+    }
+  }
+}

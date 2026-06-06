@@ -1,0 +1,11 @@
+{
+  "stt": {
+    "mimo": {
+      "enabled": true,
+      "api_base": "https://token-plan-cn.xiaomimimo.com/v1",
+      "api_key": "",
+      "model": "mimo-v2.5-asr",
+      "language": "auto"
+    }
+  }
+}
